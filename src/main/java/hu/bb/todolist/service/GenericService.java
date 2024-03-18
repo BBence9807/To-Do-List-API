@@ -1,13 +1,16 @@
 package hu.bb.todolist.service;
 
+import hu.bb.todolist.model.BaseEntity;
 import hu.bb.todolist.repository.GenericRepository;
 import java.util.Collections;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public abstract class GenericService<E> {
+
+public abstract class GenericService<E extends BaseEntity> {
 
     private GenericRepository<E> genericRepository;
 
@@ -15,23 +18,23 @@ public abstract class GenericService<E> {
         this.genericRepository = genericRepository;
     }
 
-    public List<E> findAll(){
-        return Collections.emptyList();
+    public ResponseEntity<List<E>> findAll(){
+        return (ResponseEntity<List<E>>) Collections.emptyList();
     }
 
-    public E findById(){
+    public ResponseEntity<E> findById(Long id){
         return null;
     }
 
-    public E saveNewEntity(E entity){
+    public ResponseEntity<E> saveNewEntity(E entity){
         return null;
     }
 
-    public E modEntity(E entity){
+    public ResponseEntity<E> modEntity(E entity){
         return null;
     }
 
-    public Boolean deleteEntity(){
+    public ResponseEntity<Boolean> deleteEntity(Long id){
         return null;
     }
 
