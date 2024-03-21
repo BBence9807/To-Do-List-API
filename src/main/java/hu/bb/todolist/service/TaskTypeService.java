@@ -13,6 +13,11 @@ public class TaskTypeService extends GenericService<TaskType> {
     }
 
     @Override
+    public String getName() {
+        return "TaskType";
+    }
+
+    @Override
     public Boolean validate() {
         return null;
     }
