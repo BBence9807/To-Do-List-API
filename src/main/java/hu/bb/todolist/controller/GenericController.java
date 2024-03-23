@@ -16,7 +16,7 @@ public abstract class GenericController<E extends BaseEntity> {
 
     private GenericService<E> genericService;
 
-    public GenericController(GenericService<E> genericService){
+    protected GenericController(GenericService<E> genericService){
         this.genericService = genericService;
     }
 

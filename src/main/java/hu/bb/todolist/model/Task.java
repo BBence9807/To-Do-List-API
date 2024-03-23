@@ -27,7 +27,7 @@ public class Task extends BaseEntity{
     private Boolean completed;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "t_task_type_id")
+    @JoinColumn(name = "t_task_type_id",nullable = false)
     private TaskType taskType;
 
 }

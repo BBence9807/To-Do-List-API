@@ -2,11 +2,19 @@ package hu.bb.todolist.service;
 
 import hu.bb.todolist.model.TaskType;
 import hu.bb.todolist.repository.TaskTypeRepository;
+import hu.bb.todolist.service.create.TaskTypeCreateUtilService;
+import hu.bb.todolist.service.validate.TaskTypeValidateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TaskTypeService extends GenericService<TaskType> {
+
+    @Autowired
+    private TaskTypeValidateService taskTypeValidateService;
+
+    @Autowired
+    private TaskTypeCreateUtilService taskTypeCreateUtilService;
 
     public TaskTypeService(TaskTypeRepository taskTypeRepository) {
         super(taskTypeRepository);
@@ -18,17 +26,12 @@ public class TaskTypeService extends GenericService<TaskType> {
     }
 
     @Override
-    public Boolean validate() {
-        return null;
+    public boolean validate(TaskType taskType) {
+        return taskTypeValidateService.validate(taskType);
     }
 
     @Override
-    public TaskType save() {
-        return null;
-    }
-
-    @Override
-    public TaskType mod() {
-        return null;
+    public TaskType mod(TaskType actualTaskType, TaskType newTaskType) {
+        return taskTypeCreateUtilService.create(actualTaskType,newTaskType);
     }
 }

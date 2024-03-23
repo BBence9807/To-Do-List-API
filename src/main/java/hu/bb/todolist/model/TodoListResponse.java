@@ -1,5 +1,6 @@
 package hu.bb.todolist.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 @Getter
@@ -9,6 +10,7 @@ import lombok.*;
 @Builder
 public class TodoListResponse<T> {
 
-    private T entity;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private T result;
     private String message;
 }
