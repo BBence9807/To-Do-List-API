@@ -17,3 +17,9 @@ updating task details, and deleting tasks.
 
 ## Adatbázis séma / Database scheme
 ![database_scheme](assets/database_scheme.png)
+
+## OpenAPI dokumentáció / OpenAPI documentation
+```bash
+url: http://localhost:8080/swagger-ui/index.html
+```
+![api_doc](assets/api_document.png)
